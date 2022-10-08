@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Registrar Productos</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <script src="/js/fontawesome-all.js"></script>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" th:href="@{/index}">Comercializadora 5inco</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                    class="fas fa-bars"></i></button>
+
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+
+                        <br>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Productos
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseProductos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" th:href="@{/vistas/productos/productos}">Productos</a>
+                                <a class="nav-link" th:href="@{vistas/categorias/categorias}">Categorías</a>
+                                <a class="nav-link" th:href="@{vistas/unidades/unidades}">Unidad de medida</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Administrator
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Autenticación
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <!--                                        <nav class="sb-sidenav-menu-nested nav">
+                                                                                    <a class="nav-link" th:href="@{/clientes}">Clientes</a>
+                                                                                    <a class="nav-link" th:href="@{/usuarios}">Usuarios</a>
+                                                                                    <a class="nav-link" th:href="@{/roles}">Roles</a>
+                                                                                </nav>-->
+                                </div>
+
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    Versión
+                    <div class="small">1.0.0</div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+
+
+
+            <div class="container-fluid px-4">
+
+                <!--Mensajes-->
+
+                <div class="alert alert-success alert-dismissible" th:if="${success != null }">
+                    <label th:text="${success }"></label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="alert alert-danger alert-dismissible" th:if="${error != null }">
+                    <label th:text="${error }"></label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="alert alert-warning alert-dismissible" th:if="${warning != null }">
+                    <label th:text="${warning }"></label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="alert alert-info alert-dismissible" th:if="${info != null }">
+                    <label th:text="${info }"></label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+
+
+                <!--Final Mensajes-->
+
+                <h1 class="mt-4" th:text="${titulo}"></h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a th:href="@{/index}">Menú principal</a></li>
+                    <li class="breadcrumb-item active">Productos</li>
+                </ol>
+
+                <!--Aqui el formulario-->
+                <div class="card bg-light">
+                    <div class="card-header bg-dark text-light text-center text-uppercase" th:text="${titulo}"></div>
+                    <div class="card-body">
+                        <img class="img-thumbnail rounded float-left" th:src="@{'/images/' + ${producto.imagen}}" th:alt="${producto.imagen}" style="max-width: 25%;">
+
+                        <ul class="list-group">
+                            <li class="list-group-item" th:text="'CÓDIGO DEL PRODCUTO: '+${producto.codigo} "></li>
+                            <li class="list-group-item" th:text="'NOMBRE DEL PRODCUTO: '+${producto.nombre} "></li>
+                            <li class="list-group-item" th:text="'MARCA DEL PRODCUTO: '+${producto.marca} "></li>
+                            <li class="list-group-item" th:text="'PRECIO DEL PRODCUTO: '+${producto.precio} "></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Comercializadora-5inco 2022</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+          crossorigin="anonymous"></script> -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/js/scripts.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> -->
+    <script src="/js/simple-datatables@latest.js"></script>
+
+    <script src="/js/datatables-simple-demo.js"></script>
+
+</body>
+
+</html>

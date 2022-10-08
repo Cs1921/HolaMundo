@@ -9,7 +9,7 @@ public interface ICategoriaService {
     
     
     //Metodos de mis categorias
-    public List<Categoria> listarTodos() ;
+    List<Categoria> listarTodos() ;
     public void guardar (Categoria categoria) ;
     public Categoria buscarPorId( Integer id) ;
     public void eliminar( Integer id) ;

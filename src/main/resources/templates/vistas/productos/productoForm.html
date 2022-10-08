@@ -54,9 +54,9 @@
                             <div class="collapse" id="collapseProductos" aria-labelledby="headingOne"
                                  data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" th:href="@{/productos}">Productos</a>
-                                    <a class="nav-link" th:href="@{/categorias}">Categorías</a>
-                                    <a class="nav-link" th:href="@{/unidades}">Unidad de medida</a>
+                                    <a class="nav-link" th:href="@{/vistas/productos/productos}">Productos</a>
+                                    <a class="nav-link" th:href="@{vistas/categorias/categorias}">Categorías</a>
+                                    <a class="nav-link" th:href="@{vistas/unidades/unidades}">Unidad de medida</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
@@ -74,11 +74,11 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                                          data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" th:href="@{/clientes}">Clientes</a>
-                                            <a class="nav-link" th:href="@{/usuarios}">Usuarios</a>
-                                            <a class="nav-link" th:href="@{/roles}">Roles</a>
-                                        </nav>
+                                        <!--                                        <nav class="sb-sidenav-menu-nested nav">
+                                                                                    <a class="nav-link" th:href="@{/clientes}">Clientes</a>
+                                                                                    <a class="nav-link" th:href="@{/usuarios}">Usuarios</a>
+                                                                                    <a class="nav-link" th:href="@{/roles}">Roles</a>
+                                                                                </nav>-->
                                     </div>
 
                                 </nav>
@@ -94,7 +94,40 @@
             </div>
             <div id="layoutSidenav_content">
 
+
+
                 <div class="container-fluid px-4">
+
+                    <!--Mensajes-->
+
+                    <div class="alert alert-success alert-dismissible" th:if="${success != null }">
+                        <label th:text="${success }"></label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="alert alert-danger alert-dismissible" th:if="${error != null }">
+                        <label th:text="${error }"></label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible" th:if="${warning != null }">
+                        <label th:text="${warning }"></label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="alert alert-info alert-dismissible" th:if="${info != null }">
+                        <label th:text="${info }"></label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+
+                    <!--Final Mensajes-->
+
                     <h1 class="mt-4" th:text="${titulo}"></h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a th:href="@{/index}">Menú principal</a></li>
@@ -105,34 +138,38 @@
                     <div class="card bg-light">
                         <div class="card-header bg-dark text-light"  th:text="${titulo}"></div>
                         <div class="card-body">
-                            <form class="row g-3" th:action="@{/vistas/productos/guardar}" th:object="${producto}" method="post">
+                            <form th:object="${producto}" class="row g-3" th:action="@{/vistas/productos/guardar}"  method="post" enctype="multipart/form-data" >
 
                                 <div class="row">
                                     <div class="col">
                                         <input type="hidden" th:field="*{id}">
                                         <label for="codigo" class="form-label">Código:</label>
-                                        <input type="text" th:field="*{codigo}" class="form-control col-md-6" id="codigo" placeholder="Código">
-                                        <small></small>
+                                        <input type="number" th:field="*{codigo}" class="form-control col-md-6" id="codigo" placeholder="Código" >
+                                        <small class="form-text text-danger" th:if="${#fields.hasErrors('codigo')}" 
+                                               th:errors="*{codigo}" ></small>
                                     </div>
 
                                     <div class="col">
                                         <label for="nombre" class="form-label">Nombre:</label>
                                         <input type="text" th:field="*{nombre}" class="form-control col-md-6" id="nombre" placeholder="Nombre:">
-                                        <small></small>
+                                        <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" 
+                                               th:errors="*{nombre}" ></small>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col">
                                         <label for="precio" class="form-label">Precio:</label>
-                                        <input type="text" th:field="*{precio}" class="form-control col-md-6" id="precio" placeholder="Precio">
-                                        <small></small>
+                                        <input type="number" th:field="*{precio}" class="form-control col-md-6" id="precio" placeholder="Precio">
+                                        <small class="form-text text-danger" th:if="${#fields.hasErrors('precio')}" 
+                                               th:errors="*{precio}" ></small>
                                     </div> 
 
                                     <div class="col">
                                         <label for="existencias" class="form-label">Existencias</label>
-                                        <input type="text" th:field="*{existencias}" class="form-control col-md-6" id="existencias" placeholder="Existencias">
-                                        <small></small>
+                                        <input type="number" th:field="*{existencias}" class="form-control col-md-6" id="existencias" placeholder="Existencias">
+                                        <small class="form-text text-danger" th:if="${#fields.hasErrors('existencias')}" 
+                                               th:errors="*{existencias}" ></small>
                                     </div>  
                                 </div>
 
@@ -142,8 +179,8 @@
                                         <label for="unidad" class="form-label">Unidad</label>
                                         <select th:field="*{unidad}" class="form-control col-md-6" id="unidad">
                                             <option th:each="unidad:${unidades}"
-                                                th:value="{unidad.id}"
-                                                th:text="{unidad.nombre}"></option>
+                                                    th:value="${unidad.id}"
+                                                    th:text="${unidad.nombre}"/>
                                         </select>
                                     </div>
 
@@ -151,11 +188,8 @@
                                         <label  class="form-label" for="categoria">Categoria</label>
                                         <select  th:field="*{categoria}" class="form-control col-md-6" id="categoria">
                                             <option th:each="categoria:${categorias}"
-                                                th:value="{categoria.id}"
-                                                th:text="{categoria.nombre}"
-                                                
-                                                
-                                                ></option>
+                                                    th:value="${categoria.id}"
+                                                    th:text="${categoria.nombre}"/>
                                         </select>
                                     </div>
                                 </div>
@@ -165,38 +199,56 @@
                                     <div class="col-6">
                                         <label for="marca" class="form-label">Marca:</label>
                                         <input type="text" th:field="*{marca}" class="form-control col-md-6" id="marca" placeholder="Marca">
-                                        <small></small>
-                                        
+                                        <small class="form-text text-danger" th:if="${#fields.hasErrors('marca')}" 
+                                               th:errors="*{marca}" ></small>
+
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="caracteristicas" class="form-label">Características:</label>
+                                        <input type="text" th:field="*{caracteristicas}" class="form-control col-md-6" id="caracteristicas" placeholder="Características">
+                                        <small class="form-text text-danger" th:if="${#fields.hasErrors('caracteristicas')}" 
+                                               th:errors="*{caracteristicas}" ></small>
+
                                     </div>
                                 </div>
-                                <br>
-                                <div class="card-footer bg-dark"> 
-                                    <input type="submit" class="btn btn-primary" value="Guardar">
+                                <div class="row">
+
+                                    <div class="col-6">
+                                        <label for="imagen" class="form-label">Imagen:</label>
+                                        <input type="file" name="file" class="form-control col-md-6" id="marca" >
+                                    </div>
+
                                 </div>
-                            </form>
                         </div>
+                        <br>
+                        <div class="card-footer bg-dark"> 
+                            <input type="submit" class="btn btn-primary" value="Guardar">
+                        </div>
+                        </form>
                     </div>
                 </div>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Comercializadora-5inco 2022</div>
-                        </div>
-                    </div>
-                </footer>
             </div>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Comercializadora-5inco 2022</div>
+                    </div>
+                </div>
+            </footer>
         </div>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-          crossorigin="anonymous"></script> -->
-        <script src="/js/bootstrap.bundle.min.js"></script>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"></script> -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
 
-        <script src="/js/scripts.js"></script>
+    <script src="/js/scripts.js"></script>
 
-        <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> -->
-        <script src="/js/simple-datatables@latest.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> -->
+    <script src="/js/simple-datatables@latest.js"></script>
 
-        <script src="/js/datatables-simple-demo.js"></script>
+    <script src="/js/datatables-simple-demo.js"></script>
 
-    </body>
+</body>
 
 </html>

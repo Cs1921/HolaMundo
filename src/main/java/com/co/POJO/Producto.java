@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.*;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -20,12 +22,20 @@ public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotNull
     private Integer codigo;
+    @NotEmpty
     private String nombre;
+    @NotNull
     private Double precio;
+    @NotNull
     private Integer existencias;
+    @NotEmpty
     private String caracteristicas;
+    @NotEmpty
     private String marca;
+    private String imagen;
+    
     
     
     @ManyToOne
@@ -107,6 +117,16 @@ public class Producto implements Serializable {
     public void setUnidad(Unidad unidad) {
         this.unidad = unidad;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    
 
     @Override
     public String toString() {

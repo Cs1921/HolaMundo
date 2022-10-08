@@ -57,9 +57,9 @@
                             <div class="collapse" id="collapseProductos" aria-labelledby="headingOne"
                                  data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" th:href="@{/productos}">Productos</a>
-                                    <a class="nav-link" th:href="@{/categorias}">Categorías</a>
-                                    <a class="nav-link" th:href="@{/unidades}">Unidad de medida</a>
+                                    <a class="nav-link" th:href="@{/vistas/productos/productos}">Productos</a>
+                                    <a class="nav-link" th:href="@{vistas/categorias/categorias}">Categorías</a>
+                                    <a class="nav-link" th:href="@{vistas/unidades/unidades}">Unidad de medida</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
@@ -77,11 +77,11 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                                          data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
+<!--                                        <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" th:href="@{/clientes}">Clientes</a>
                                             <a class="nav-link" th:href="@{/usuarios}">Usuarios</a>
                                             <a class="nav-link" th:href="@{/roles}">Roles</a>
-                                        </nav>
+                                        </nav>-->
                                     </div>
 
                                 </nav>
@@ -147,7 +147,11 @@
                                     </tfoot>
                                     <tbody>
                                         <tr  th:each="producto : ${productos}">
-                                            <td th:text="${producto.id}"></td>
+                                            <td >
+                                                <a class="btn btn-info btn-xs" 
+                                                   th:href="@{/vistas/productos/detalle/}+${producto.id}"
+                                                   th:text="${producto.id}">  </a>
+                                            </td>
                                             <td th:text="${producto.codigo}"></td>
                                             <td th:text="${producto.nombre}"></td>
                                             <td th:text="${producto.precio}"></td>
