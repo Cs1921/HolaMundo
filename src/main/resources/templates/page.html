@@ -74,26 +74,22 @@
                         <div class="tab-pane fade active show" id="menu-starters">
 
                             <div class="row">
-                                <div class="col-md-3 my-5" th:each="producto : ${productos}">
-                                    <img class="card-img-top shadow-lg " th:src="@{'/images/' + ${producto.imagen}}"  style="max-width: 150px; max-height: 150px; text-decoration: none; text-justify: center">
+                                <div class="row">
+                                    <div class="col-md-3 my-5" th:each="producto : ${productos}">
+                                        <img class="card-img-top shadow-lg" th:src="@{'/images/' + ${producto.imagen}}"  style="max-width: 80%; text-decoration: none; border-radius: 10px">
 
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                            <h2 class="card-title fs-6" th:text="'Nombre: '+${producto.nombre} "></h2>
-                                            <p class="text-muted " th:text="'Precio '+ '$ '+ ${producto.precio} "></p>
-                                        </ul>
+                                        <div class="card-body">
+                                            <ul class="list-group">
+                                                <h2 class="card-title fs-5" th:text="'Nombre: '+${producto.nombre} "></h2>
+                                                <p class=" card-text text-muted " th:text="'Precio '+ '$ '+ ${producto.precio} "></p>
+                                            </ul>
+                                        </div>
+
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
                 </div>
 
                 </div>
@@ -112,31 +108,6 @@
                     <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">
                         <div class="swiper-wrapper">
 
-                            <!-- <div class="swiper-slide">
-                              <div class="testimonial-item">
-                                <div class="row gy-4 justify-content-center">
-                                  <div class="col-lg-6">
-                                    <div class="testimonial-content">
-                                      <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Sunt exercitation deserunt aute irure consectetur. Ex in non velit id veniam. Labore nulla culpa sint aute id et ex commodo Lorem pariatur veniam aliqua.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                      </p>
-                                      <h3>Carolina Ante</h3>
-                                      <h4>Ceo &amp; Founder</h4>
-                                      <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2 text-center">
-                                    <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid testimonial-img" alt="">
-                                  </div>
-                                </div>
-                              </div>
-                            </div> -->
-                            <!-- End testimonial item -->
-
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <div class="row gy-4 justify-content-center">
@@ -144,13 +115,39 @@
                                             <div class="testimonial-content">
                                                 <p>
                                                     <i class="bi bi-quote quote-icon-left"></i>
-                                                    Anim ea fugiat proident et reprehenderit qui ex ullamco minim. Occaecat est eiusmod esse deserunt incididunt magna id. Veniam enim dolore laborum excepteur. Sunt aliquip aliqua ex non consectetur nulla cillum aliquip sunt magna. Dolor aliquip mollit ipsum ad minim sit sunt aliquip do nostrud sunt sunt fugiat excepteur.
+                                                    ...Han sido, parte de nuestro crecimiento, los productos que nos provee la comercializadora nos provee son de la mas alta calidad, así tambíen nosotros entregamos calidad a nuestros clientes... 
                                                     <i class="bi bi-quote quote-icon-right"></i>
                                                 </p>
-                                                <h3>Carolina Ante</h3>
+                                                <h3>De' Burguer</h3>
                                                 <h4>Cliente</h4>
                                                 <div class="stars">
                                                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 text-center">
+                                            <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                    <div class="row gy-4 justify-content-center">
+                                        <div class="col-lg-6">
+                                            <div class="testimonial-content">
+                                                <p>
+                                                    <i class="bi bi-quote quote-icon-left"></i>
+                                                   ... La calidad de los productos es alta, a precios cómodos, desde que inicié mi negocio de comidas rápidas he comprado los productos aquí y creo no me voy a cambiar...
+                                                    <i class="bi bi-quote quote-icon-right"></i>
+                                                </p>
+                                                <h3>SalchiSalvaje</h3>
+                                                <h4>Cliente</h4>
+                                                <div class="stars">
+                                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,60 +157,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- End testimonial item -->
-
-                            <!-- <div class="swiper-slide">
-                              <div class="testimonial-item">
-                                <div class="row gy-4 justify-content-center">
-                                  <div class="col-lg-6">
-                                    <div class="testimonial-content">
-                                      <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                      </p>
-                                      <h3>Jena Karlis</h3>
-                                      <h4>Store Owner</h4>
-                                      <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2 text-center">
-                                    <img src="assets/img/testimonials/testimonials-3.jpg" class="img-fluid testimonial-img" alt="">
-                                  </div>
-                                </div>
-                              </div>
-                            </div> -->
-                            <!-- End testimonial item -->
-
-                            <!-- <div class="swiper-slide">
-                              <div class="testimonial-item">
-                                <div class="row gy-4 justify-content-center">
-                                  <div class="col-lg-6">
-                                    <div class="testimonial-content">
-                                      <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                      </p>
-                                      <h3>John Larson</h3>
-                                      <h4>Entrepreneur</h4>
-                                      <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2 text-center">
-                                    <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
-                                  </div>
-                                </div>
-                              </div>
-                            </div> -->
-                            <!-- End testimonial item -->
-
-                        </div>
                         <div class="swiper-pagination"></div>
                     </div>
 
@@ -233,16 +176,16 @@
                     </div>
 
                     <div class="gallery-slider swiper">
-                        <div class="swiper-wrapper align-items-center">
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/bimbo.jpg"><img src="assets/img/gallery/bimbo.jpg" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/barilla.png"><img src="assets/img/gallery/barilla.png" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/guadalupe.png"><img src="assets/img/gallery/guadalupe.png" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/heinz.png"><img src="assets/img/gallery/heinz.png" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/natipan.png"><img src="assets/img/gallery/natipan.png" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/tami.png"><img src="assets/img/gallery/tami.png" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/wonder.jpg"><img src="assets/img/gallery/wonder.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-wrapper align-items-center " >
+                            <div class="swiper-slide"style="margin:  5px"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/bimbo.jpg"><img src="assets/img/gallery/bimbo.jpg" class="img-fluid" alt=""></a></div>
+                            <div class="swiper-slide"style="margin:  5px"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/barilla.png"><img src="assets/img/gallery/barilla.png" class="img-fluid" alt=""></a></div>
+                            <div class="swiper-slide"style="margin:  5px"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/guadalupe.png"><img src="assets/img/gallery/guadalupe.png" class="img-fluid" alt=""></a></div>
+                            <div class="swiper-slide"style="margin:  5px"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/heinz.png"><img src="assets/img/gallery/heinz.png" class="img-fluid" alt=""></a></div>
+                            <div class="swiper-slide"style="margin:  5px"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/natipan.png"><img src="assets/img/gallery/natipan.png" class="img-fluid" alt=""></a></div>
+                            <div class="swiper-slide"style="margin:  5px"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/tami.png"><img src="assets/img/gallery/tami.png" class="img-fluid" alt=""></a></div>
+                            <div class="swiper-slide"style="margin:  5px"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/wonder.jpg"><img src="assets/img/gallery/wonder.jpg" class="img-fluid" alt=""></a></div>
                         </div>
-                        <div class="swiper-pagination"></div>
+                        <div class="swiper-pagination" style="margin: 5px 5px"></div>
                     </div>
 
                 </div>

@@ -52,8 +52,8 @@
                         <div class="collapse" id="collapseProductos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" th:href="@{/vistas/productos/productos}">Productos</a>
-                                <a class="nav-link" th:href="@{vistas/categorias/categorias}">Categorías</a>
-                                <a class="nav-link" th:href="@{vistas/unidades/unidades}">Unidad de medida</a>
+                                <a class="nav-link" th:href="@{/vistas/categorias/categorias}">Categorías</a>
+                                <a class="nav-link" th:href="@{/vistas/unidades/unidades}">Unidad de medida</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -92,40 +92,10 @@
 
             <div class="container-fluid px-4">
 
-                <!--Mensajes-->
-
-                <div class="alert alert-success alert-dismissible" th:if="${success != null }">
-                    <label th:text="${success }"></label>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="alert alert-danger alert-dismissible" th:if="${error != null }">
-                    <label th:text="${error }"></label>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="alert alert-warning alert-dismissible" th:if="${warning != null }">
-                    <label th:text="${warning }"></label>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="alert alert-info alert-dismissible" th:if="${info != null }">
-                    <label th:text="${info }"></label>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-
-
-                <!--Final Mensajes-->
-
                 <h1 class="mt-4" th:text="${titulo}"></h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a th:href="@{/index}">Menú principal</a></li>
-                    <li class="breadcrumb-item active">Productos</li>
+                    <li class="breadcrumb-item"><a th:href="@{/vistas/productos/productos}">Productos</a></li>
+                    <li class="breadcrumb-item active">Detalle productos</li>
                 </ol>
 
                 <!--Aqui el formulario-->
