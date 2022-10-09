@@ -82,7 +82,7 @@
                 <artifactId>heroku-maven-plugin</artifactId> 
                 <version>3.0.4</version> 
                 <configuration> 
-                    <appName>comercializadora5inco</appName> 
+                    <appName>comercializadora5</appName> 
                     <includeTarget>false</includeTarget> 
                     <includes> 
                         <include>${project.build.directory}/${project.build.finalName}.jar</include> 
